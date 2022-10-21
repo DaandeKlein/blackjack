@@ -20,6 +20,7 @@
         drawCardplayer();
         $_SESSION['playertotal'] = $playertotal;
         echocardvalue();
+        aceChecker();
         checkCardValue();
         
     }

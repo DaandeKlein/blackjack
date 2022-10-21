@@ -5,6 +5,8 @@ global $player;
 global $deck;
 global $nextCard;
 global $playertotal;
+global $aceChecker;
+$aceChecker = array();
 $dealer = 0;
 $player = 0;
 
@@ -43,7 +45,10 @@ function drawCardplayer()
 {
     global $nextCard;
     global $deck;
+    global $aceChecker;
+    $aceChecker = array();
     $nextCard = $deck[0];
+    $aceChecker = $deck[0];
     array_splice($deck, 0, 1);
     echo $nextCard . "<br />";
     cardvalue();
@@ -86,6 +91,15 @@ function checkCardValue()
     else
     {
         echo "you are below 21";
+    }
+}
+
+function aceChecker()
+{
+    global $aceChecker;
+    foreach($aceChecker as $card)
+    {
+        echo "$card";
     }
 }
 
