@@ -71,18 +71,37 @@ function cardvalue()
     return $playertotal . "<br />";
 
 }
+
+function checkCardValue()
+{
+    global $playertotal;
+    if ($playertotal > 21)
+    {
+        echo "you are over 21";
+    }
+    else if ($playertotal == 21)
+    {
+        echo "wow you have 21";
+    }
+    else
+    {
+        echo "you are below 21";
+    }
+}
+
 function echocardvalue()
 {
     global $playertotal;
     echo $playertotal;
 }
 
-createdeck();
-shuffledeck();
-drawCardplayer();
-drawCardplayer();
-drawCardplayer();
-echocardvalue();
+// createdeck();
+// shuffledeck();
+// drawCardplayer();
+// drawCardplayer();
+// drawCardplayer();
+// echocardvalue();
+// checkCardValue();
 
 //     switch($typeCard)
 //     {
