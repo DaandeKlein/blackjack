@@ -46,9 +46,9 @@ function drawCardplayer()
     global $nextCard;
     global $deck;
     global $aceChecker;
-    $aceChecker = array();
     $nextCard = $deck[0];
-    $aceChecker = $deck[0];
+    $aceChecker += [$deck[0]];
+    var_dump($aceChecker);
     array_splice($deck, 0, 1);
     echo $nextCard . "<br />";
     cardvalue();
@@ -97,10 +97,14 @@ function checkCardValue()
 function aceChecker()
 {
     global $aceChecker;
-    foreach($aceChecker as $card)
+    for($i = 0; $i < count($aceChecker); $i++)
     {
-        echo "$card";
+        echo $aceChecker[$i];
     }
+    // foreach($aceChecker as $card)
+    // {
+    //     echo "$card";
+    // }
 }
 
 function echocardvalue()

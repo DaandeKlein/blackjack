@@ -5,6 +5,8 @@
     if(isset($_SESSION['playertotal']))
     {
         $playertotal = $_SESSION['playertotal'];
+        // $aceChecker = $_SESSION['aceChecker'] 
+        array_push($aceChecker, $_SESSION['aceChecker']);
     }
     else
     {
@@ -21,6 +23,7 @@
         $_SESSION['playertotal'] = $playertotal;
         echocardvalue();
         aceChecker();
+        $_SESSION['aceChecker'] = $aceChecker;
         checkCardValue();
         
     }
@@ -28,6 +31,7 @@
     if(isset($_POST['unset']))
     {     
         unset($_SESSION['playertotal']);
+        unset($_SESSION['aceChecker']);
     }
 ?>
     <!DOCTYPE html>
