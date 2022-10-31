@@ -6,7 +6,7 @@ global $deck;
 global $nextCard;
 global $playertotal;
 global $aceChecker;
-$aceChecker = array();
+$aceChecker = [];
 $dealer = 0;
 $player = 0;
 
@@ -47,8 +47,7 @@ function drawCardplayer()
     global $deck;
     global $aceChecker;
     $nextCard = $deck[0];
-    $aceChecker += [$deck[0]];
-    var_dump($aceChecker);
+    array_push($aceChecker, [$deck[0]]);
     array_splice($deck, 0, 1);
     echo $nextCard . "<br />";
     cardvalue();
@@ -99,12 +98,11 @@ function aceChecker()
     global $aceChecker;
     for($i = 0; $i < count($aceChecker); $i++)
     {
-        echo $aceChecker[$i];
+        $filename_arr = $aceChecker[$i];
+        $file_coma = implode(',', $filename_arr);
+        echo "<br /> test:".$file_coma. "<br />";
     }
-    // foreach($aceChecker as $card)
-    // {
-    //     echo "$card";
-    // }
+    var_dump($aceChecker);
 }
 
 function echocardvalue()

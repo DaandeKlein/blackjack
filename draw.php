@@ -1,12 +1,20 @@
 <?php
     session_start();
     include "functions.php";
+    createdeck();
 
     if(isset($_SESSION['playertotal']))
     {
         $playertotal = $_SESSION['playertotal'];
-        // $aceChecker = $_SESSION['aceChecker'] 
-        array_push($aceChecker, $_SESSION['aceChecker']);
+        if(isset($_SESSION['aceChecker']))
+        {
+            $aceChecker = $_SESSION['aceChecker'];
+        }
+        else
+        {
+            $aceChecker = [];
+        }
+        //array_push($aceChecker, $_SESSION['aceChecker']);
     }
     else
     {
@@ -16,8 +24,6 @@
 
     if(isset($_POST['draw']))
     {
-
-        createdeck();
         shuffledeck();
         drawCardplayer();
         $_SESSION['playertotal'] = $playertotal;
@@ -25,7 +31,6 @@
         aceChecker();
         $_SESSION['aceChecker'] = $aceChecker;
         checkCardValue();
-        
     }
 
     if(isset($_POST['unset']))
